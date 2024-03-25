@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="bg-white dark:bg-gray-900">
+    <div class="navbar bg-base-100">
+        <a href="/" class="btn btn-ghost text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#f26a8d" viewBox="0 0 24 24" stroke-width="5" stroke="currentColor" class="w-6 h-6 text-pink">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+              </svg>          
+        </a>
+    </div>
+    <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12">
+        <div class="mr-auto place-self-center lg:col-span-7">
+            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Predicted Output Of Iris Predictor Model</h1>
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">The predicted output for 
+                <span class="px-2 rounded-full inline-block leading-loose bg-green text-white my-1 mx-1 text-base font-normal">sepal length {{ form.get('sepal-length') }}</span>
+                <span class="px-2 rounded-full inline-block leading-loose bg-green text-white my-1 mx-1 text-base font-normal">sepal width {{ form.get('sepal-width') }}</span>
+                <span class="px-2 rounded-full inline-block leading-loose bg-green text-white my-1 mx-1 text-base font-normal">petal length {{ form.get('petal-length') }}</span>
+                <span class="px-2 rounded-full inline-block leading-loose bg-green text-white my-1 mx-1 text-base font-normal">petal width {{ form.get('petal-width') }}</span></p>
+                <div class="text-center">
+                    <h1 >
+                        <span class="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-3xl xl:text-4xl bg-pink rounded-full text-white px-4 py-1 dark:text-white">
+                            {{ prediction[0] }}
+                        </span>
+                    </h1>
+                </div>
+        </div>
+        
+        <div class="lg:mt-0 mt-4 md:h-full lg:col-span-5 lg:flex h-1/2 overflow-y-clip">
+            <img class="rounded-lg shadow-inner" src="{{url_for('static', filename='irisflowerfour.jpeg')}}" alt="mockup">
+        </div>                
+    </div>
+</section>
+
+{% endblock content %}
